@@ -19,7 +19,8 @@ public class Valuta {
 	}
 
 	public void setKupovni(double kupovni) {
-	
+		if(kupovni > 0)
+			
 		this.kupovni = kupovni;
 	}
 
@@ -28,7 +29,7 @@ public class Valuta {
 	}
 
 	public void setProdajni(double prodajni) {
-		
+		if(prodajni > 0)
 		this.prodajni = prodajni;
 	}
 
@@ -37,7 +38,7 @@ public class Valuta {
 	}
 
 	public void setSrednji(double srednji) {
-		
+		if(srednji > 0)
 		this.srednji = srednji;
 	}
 
@@ -46,7 +47,14 @@ public class Valuta {
 	}
 
 	public void setDatum(GregorianCalendar datum) {
-
+		GregorianCalendar danasnji = new GregorianCalendar();
+		int dan = danasnji.DAY_OF_MONTH;
+		int mesec = danasnji.MONTH;
+		int god = danasnji.YEAR;
+		if(datum == null)
+			throw new RuntimeException("Datumm nije unet dobro.");
+		if(!(god == datum.YEAR && mesec == datum.MONTH && dan == datum.DAY_OF_MONTH) )
+			throw new RuntimeException("Datum nije unet dobro. Mozete uneti danasnji datum");
 	this.datum = datum;
 	}
 	
@@ -55,7 +63,8 @@ public class Valuta {
 		return naziv;
 	}
 	public void setNaziv(String naziv) {
-	
+		if(naziv == null || naziv.isEmpty())
+			throw new RuntimeException("Nije unet odgovarajuci naziv.");
 		this.naziv = naziv;
 	}
 	public String getSkraceniNaziv() {
@@ -63,7 +72,8 @@ public class Valuta {
 		return skraceniNaziv;
 	}
 	public void setSkraceniNaziv(String skraceniNaziv) {
-	
+		if(skraceniNaziv == null ||  skraceniNaziv.isEmpty())	
+			throw new RuntimeException("Nije unet odgovarajuci skraaceni naziv.");
 		this.skraceniNaziv = skraceniNaziv;
 	}
 
