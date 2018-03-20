@@ -59,6 +59,11 @@ public class Menjacnica implements IMenjacnica{
 	}
 
 	@Override
+	public String toString() {
+		return "Menjacnica [valute=" + valute + "]";
+	}
+
+	@Override
 	public Valuta vratiKurs(String skraceniNaziv, GregorianCalendar datum) {
 		if(skraceniNaziv!=null && datum != null) {	
 			
